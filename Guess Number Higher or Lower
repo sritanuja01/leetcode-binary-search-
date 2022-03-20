@@ -1,0 +1,28 @@
+public class Solution extends GuessGame {
+    int bin_search(int n)
+    {
+        int l=1;
+        int h=n;
+        int m=l+(h-l)/2;
+        while(l<=h)
+        {
+            if(guess(m)==0)
+            {
+                return m;
+            }
+            else if(guess(m)==-1)
+            {
+                h=m-1;
+            }
+            else
+            {
+                l=m+1;
+            }
+            m=l+(h-l)/2;
+        }
+        return -1;
+    }
+    public int guessNumber(int n) {
+     return bin_search(n);
+}
+}
