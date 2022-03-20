@@ -1,0 +1,33 @@
+public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+        int l=1;
+        int h=n;
+        int m=0;
+        if(n==0)
+        {
+            return -1;
+        }
+        if(n==1&&isBadVersion(n)==true)
+        {
+            return 1;
+        }
+        while(l<h)
+        {
+            m=l+(h-l)/2;
+           if(isBadVersion(m)==false)
+           {
+               l=m+1;
+           }
+            else
+            {
+                h=m;
+                
+            }
+            
+        }
+        if(l==h&&isBadVersion(l)==true)
+            return l;
+        
+        return -1;
+    }
+}
